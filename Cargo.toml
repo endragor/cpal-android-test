@@ -1,0 +1,22 @@
+[package]
+name = "cpal-android-test"
+version = "0.0.1"
+authors = [ "Ruslan Mustakov <r.mustakov@gmail.com>" ]
+edition = "2018"
+
+[lib]
+crate-type = ["lib", "cdylib"]
+
+[patch.crates-io]
+cpal = { git = "https://github.com/endragor/cpal", branch = "android-support" }
+
+[dependencies]
+rodio = "0.12"
+ndk-glue = "0.2"
+
+[package.metadata.android]
+apk_label = "CPALTest"
+target_sdk_version = 29
+min_sdk_version = 18
+assets = "assets"
+build_targets = [ "armv7-linux-androideabi", "aarch64-linux-android", "i686-linux-android", "x86_64-linux-android" ]
